@@ -33,7 +33,7 @@ function autotag(changes){
             delete cache[title];
             return;
         }
-        if( !/^Draft of|^\$:\//.test(title) && changes[title].modified){
+        if( !/^Draft of|^\$:\//.test(title) && changes[title].modified && !allTags.includes('noAutoTag')){
             /*If the title is not a system one or draft we operate on it*/
             var tiddler=$tw.wiki.getTiddler(title).fields;
                 if(tagsRegex.test(tiddler.text))
